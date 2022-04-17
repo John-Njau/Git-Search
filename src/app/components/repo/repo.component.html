@@ -1,0 +1,80 @@
+<section>
+  <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0" (ngSubmit)="searchGithubRepo()">
+    <div class="form-group d-flex">
+      <label for="search"></label>
+      <input
+        type="search"
+        class="form-control"
+        placeholder="Search..."
+        [(ngModel)]="reponame"
+        name="reponame"
+      />
+      <button class="btn btn-primary m-1" type="submit">Search</button>
+      <br />
+    </div>
+    <small class="text-muted m-1">Search for: {{ reponame }}</small>
+  </form> -->
+  <p>We nest repo component here</p>
+  <div *ngIf="ExistingRepo; then RepoData; else errorNoRepoData"></div>
+  <ng-template #RepoData class="">
+    <div class="container" id="repos">
+      <div class="col-sm-12 col-md-12">
+        <div class="" *ngFor="let repo of ExistingRepo.slice(0)">
+          <div class="card m-3">
+            <div class="card-body">
+              <div class="card-header m-3 h5">
+                <span>{{ repo.name }}</span>
+              </div>
+              <div class="card-text lead">
+                {{ repo.description }}
+              </div>
+              <div class="card-subtitle m-3">
+                <span class="fs-5">{{ repo.created_at | date }} </span>
+              </div>
+              <div class="m-3 d-flex flex-row justify-content-around">
+                <a class="btn btn-primary" href="{{ repo.html_url }}"
+                  >View Repo on Github</a
+                >
+                <a href="{{ repo.homepage }}" class="btn btn-primary ms-1"
+                  >Live site</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-sm-12 col-md-12">
+        <div class="" *ngFor="let repo of ExistingRepo.slice(15)">
+          <div class="card m-3">
+            <div class="card-body">
+              <div class="card-header m-3 h5">
+                <span>{{ repo.name }}</span>
+              </div>
+              <div class="card-subtitle m-3">
+                <span class="fs-5">{{ repo.created_at }} </span>
+              </div>
+              <div class="card-text lead">
+                {{ repo.description }}
+              </div>
+              <div class="m-3 d-flex flex-row justify-content-between">
+                <a class="btn btn-primary" href="{{ repo.html_url }}"
+                  >View Repo on Github</a
+                >
+                <a href="{{ repo.homepage }}" class="btn btn-primary ms-1"
+                  >Live site</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- <div class="" *ngFor="let repo of ExistingRepo">
+        <div class="card" style="width: 18rem;">
+      <div class="card-title">Name: <span>{{ repo.name }}</span> </div>
+      </div>
+    </div> -->
+  </ng-template>
+  <ng-template #errorNoRepoData> "No Repo Data" </ng-template>
+</section>
