@@ -1,42 +1,38 @@
-<section id="main" class="container-fluid">
-  <div class="">
-    <header class="py-3 mb-4 border-bottom bg-dark">
-      <div class="container d-flex flex-wrap justify-content-center">
-        <a
-          href="/"
-          class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none"
-        >
-          <span class="fs-4 text-light">Git Search</span>
-        </a>
-        <form
-          class="col-12 col-lg-auto mb-3 mb-lg-0"
-          (ngSubmit)="searchGithub()"
-        >
-          <div class="form-group d-flex">
-            <label for="search"></label>
-            <input
-              type="search"
-              class="form-control"
-              placeholder="Search..."
-              [(ngModel)]="username"
-              name="username"
-            />
-            <button class="btn btn-primary m-1" type="submit">Search</button>
-            <br />
-          </div>
-          <small class="text-muted m-1">Search for: {{ username }}</small>
-        </form>
-      </div>
-    </header>
+<section id="main" class="">
+  <header class="py-3 mb-4 border-bottom bg-dark">
+    <div class="container d-flex flex-wrap justify-content-center">
+      <a
+        href="/"
+        class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none"
+      >
+        <span class="fs-4 text-light">Git Search</span>
+      </a>
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0" (ngSubmit)="searchGithub()">
+        <div class="form-group d-flex">
+          <label for="search"></label>
+          <input
+            type="search"
+            class="form-control"
+            placeholder="Search..."
+            [(ngModel)]="username"
+            name="username"
+          />
+          <button class="btn btn-primary m-1" type="submit">Search</button>
+          <br />
+        </div>
+        <small class="text-muted m-1">Search for: {{ username }}</small>
+      </form>
+    </div>
+  </header>
 
-    <div
-      *ngIf="gitprofile ; then populateProfileData; else errorNoGitProfile"
-    ></div>
-    <ng-template #populateProfileData class="container">
+  <div
+    *ngIf="gitprofile; then populateProfileData; else errorNoGitProfile"
+  ></div>
+    <ng-template #populateProfileData class="">
       <div class="text-center text-light h2">Search Results...</div>
       <div class="row">
         <div
-          class="col-sm-12 col-md-6 bg-warning text-light p-3 text-center"
+          class="col-md-6 bg-warning text-light p-3 text-center"
           id="userDetails"
         >
           <h4>Github User id: {{ gitprofile.id }}</h4>
@@ -51,23 +47,26 @@
           </p>
         </div>
         <div
-          class="col-sm-12 col-md-6 bg-primary border-right p-3 border-top"
+          class="col-sm-12 col-md-6 bg-primary p-3"
           id="aboutUser"
         >
           <h3 class="text-center">About User</h3>
           <ul>
-            <li>Github username: {{ gitprofile.login }}</li>
-            <p>
-              Blog:
-              <span
-                ><a href="{{ gitprofile.blog }}" target="blank">{{
-                  gitprofile.blog
-                }}</a>
-              </span>
-            </p>
-            <p>Company: {{ gitprofile.company }}</p>
-            <p>Account created on: {{ gitprofile.created_at | date }}</p>
-            <p>Account last updated on: {{ gitprofile.updated_at | date }}</p>
+            <li><span>Github username:</span> {{ gitprofile.login }}</li>
+            <li> <span>Bio:</span>
+              <a href="{{ gitprofile.blog }}" target="blank"
+                > {{ gitprofile.blog }}</a
+              >
+            </li>
+            <li><span>Company:</span> {{ gitprofile.company }}</li>
+            <li>
+              <span>Account created on:</span>
+              {{ gitprofile.created_at | date }}
+            </li>
+            <li>
+              <span>Account last updated on:</span>
+              {{ gitprofile.updated_at | date }}
+            </li>
           </ul>
           <br />
         </div>
@@ -76,7 +75,7 @@
         <div class="container col-sm-12 text-center">
           <div class="text-center">
             <h3 class="p-4 text-light">User Repositories</h3>
-            <p class="h4">
+            <p class="h4 text-secondary">
               Public Repositories:
               <span class="text-light">{{ gitprofile.public_repos }}</span>
             </p>
@@ -112,5 +111,4 @@
     <ng-template #errorNoGitProfile>
       <p class="text-light">User profile not found</p>
     </ng-template>
-  </div>
 </section>

@@ -16,3 +16,6 @@ ul>li{
     list-style-type: none;
     margin: 15px;
 }
+li>span{
+    font-weight: 700;
+}

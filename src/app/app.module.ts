@@ -14,6 +14,7 @@ import { UserService } from './services/user.service';
 import { RepoComponent } from './components/repo/repo.component';
 import { AboutComponent } from './components/about/about.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HomePageComponent,
     RepoComponent,
     AboutComponent,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
