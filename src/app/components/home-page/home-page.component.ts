@@ -13,6 +13,7 @@ export class HomePageComponent implements OnInit {
 
   username: string; //username
   gitprofile!: Userprofile; //profile
+  githubrepos: any
 
   constructor(private userService: UserService) {
     // sort of placeholder at the input section
@@ -29,6 +30,11 @@ export class HomePageComponent implements OnInit {
     // this.gitprofile = <any>this.userService.searchuser
     // alert(this.gitprofile);
 
+    this.userService.getUserRepos().subscribe(repository => {
+      this.githubrepos = repository
+      console.log(this.githubrepos);
+
+    })
   }
 
   ngOnInit(): void {
@@ -39,6 +45,10 @@ export class HomePageComponent implements OnInit {
 
       }
     )
+    this.userService.getUserRepos().subscribe(repository => {
+      this.githubrepos = repository
+    })
+
   }
 
 }

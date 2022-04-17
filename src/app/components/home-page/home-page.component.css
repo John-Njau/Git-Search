@@ -2,15 +2,15 @@
   background-color: #080808;
 }
 #userDetails{
-    background: #310d48!important; 
+    background: #3b3a3b!important; 
 }
 #aboutUser{
-    background-color: azure!important;
+    background-color: rgb(224, 224, 223)!important;
 }
 
 #repoDisplay{
-    background-color: rgb(201, 218, 218)!important;
-    height: 50vh;
+    background-color: rgb(32, 54, 126)!important;
+    /* height: 50vh; */
 }
 ul>li{
     list-style-type: none;
