@@ -10,29 +10,28 @@ import { RepoDetails } from '../../repo-details';
 })
 export class RepoComponent implements OnInit {
 
-  reponame!: string
-  // Repos: RepoInterface[] = []
-  ExistingRepo!: any;
+  reponame: any;  //searchname
+  ExistingRepos: any;  //repos
 
   constructor(private userService: UserService) {
+    this.userService = userService
     console.log(this.reponame);
 
   }
 
   searchGithubRepo() {
     this.userService.updateRepo(this.reponame);
-    this.userService. getUserRepos().subscribe(
-      repo => { this.ExistingRepo = repo }
+    this.userService.searchGithubRepo().subscribe(
+      data => { this.ExistingRepos = data['items'];
+      }
     )
-
-
   }
 
   ngOnInit(): void {
-    this.userService. getUserRepos().subscribe(
+    this.userService.searchGithubRepo().subscribe(
       data => {
-        this.ExistingRepo = data
-        console.log(this.ExistingRepo);
+        this.ExistingRepos = data['items'];
+        console.log(this.ExistingRepos);
       }
     )
   }
