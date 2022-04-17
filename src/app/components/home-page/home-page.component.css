@@ -1,0 +1,18 @@
+#main{
+  background-color: #080808;
+}
+#userDetails{
+    background: #310d48!important; 
+}
+#aboutUser{
+    background-color: azure!important;
+}
+
+#repoDisplay{
+    background-color: rgb(201, 218, 218)!important;
+    height: 50vh;
+}
+ul>li{
+    list-style-type: none;
+    margin: 15px;
+}
