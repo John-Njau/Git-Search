@@ -19,7 +19,6 @@ export class HomePageComponent implements OnInit {
     // sort of placeholder at the input section
     this.username = `${this.userService.searchuser}`
     console.log(this.username);
-
   }
 
   searchGithub() {

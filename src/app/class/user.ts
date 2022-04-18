@@ -15,4 +15,6 @@ export interface UserInterface {
     followers_url: string;
     public_repos: string;
     repos_url: string;
+    apiKey?: Boolean;
+    apiUrl?: Boolean;
 }

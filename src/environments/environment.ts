@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  GITHUB_API_URL : `https://api.github.com/users/`,
+  Api_Key : "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"
 };
 
 /*
@@ -19,5 +21,6 @@ export const environment = {
 /*
 // Github Api 
 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
+REPO_URL = `https://api.github.com/search/repositories?q=`
 
 // */ 

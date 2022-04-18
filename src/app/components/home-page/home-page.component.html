@@ -28,87 +28,85 @@
   <div
     *ngIf="gitprofile; then populateProfileData; else errorNoGitProfile"
   ></div>
-    <ng-template #populateProfileData class="">
-      <div class="text-center text-light h2">Search Results...</div>
-      <div class="row">
-        <div
-          class="col-md-6 bg-warning text-light p-3 text-center"
-          id="userDetails"
-        >
-          <h4>Github User id: {{ gitprofile.id }}</h4>
-          <h1>{{ gitprofile.name }}</h1>
-          <img class="img-fluid" src="{{ gitprofile.avatar_url }}" alt="" />
-          <br />
+  <ng-template #populateProfileData class="">
+    <div class="text-center text-light h2">Search Results...</div>
+    <div class="row">
+      <div
+        class="col-md-6 bg-warning text-light p-3 text-center"
+        id="userDetails"
+      >
+        <h4>Github User id: {{ gitprofile.id }}</h4>
+        <h1>{{ gitprofile.name }}</h1>
+        <img class="img-fluid" src="{{ gitprofile.avatar_url }}" alt="" />
+        <br />
 
-          <p>Followers : {{ gitprofile.followers }} <br /></p>
-          <p>Following : {{ gitprofile.following }}</p>
-          <p class="text-center">
-            <a href="{{ gitprofile.html_url }}">View Account on GitHub</a>
-          </p>
-        </div>
-        <div
-          class="col-sm-12 col-md-6 bg-primary p-3"
-          id="aboutUser"
-        >
-          <h3 class="text-center">About User</h3>
-          <ul>
-            <li><span>Github username:</span> {{ gitprofile.login }}</li>
-            <li> <span>Bio:</span>
-              <a href="{{ gitprofile.blog }}" target="blank"
-                > {{ gitprofile.blog }}</a
-              >
-            </li>
-            <li><span>Company:</span> {{ gitprofile.company }}</li>
-            <li>
-              <span>Account created on:</span>
-              {{ gitprofile.created_at | date }}
-            </li>
-            <li>
-              <span>Account last updated on:</span>
-              {{ gitprofile.updated_at | date }}
-            </li>
-          </ul>
-          <br />
-        </div>
+        <p>Followers : {{ gitprofile.followers }} <br /></p>
+        <p>Following : {{ gitprofile.following }}</p>
+        <p class="text-center">
+          <a href="{{ gitprofile.html_url }}">View Account on GitHub</a>
+        </p>
       </div>
-      <div class="" id="repoDisplay">
-        <div class="container col-sm-12 text-center">
-          <div class="text-center">
-            <h3 class="p-4 text-light">User Repositories</h3>
-            <p class="h4 text-secondary">
-              Public Repositories:
-              <span class="text-light">{{ gitprofile.public_repos }}</span>
-            </p>
-            <!-- populating user repositories -->
-            <div *ngFor="let repo of githubrepos">
-              <div class="card m-3">
-                <div class="card-body">
-                  <div class="card-header m-3 h5">
-                    <span>{{ repo.name }}</span>
-                  </div>
-                  <div class="card-text lead">
-                    {{ repo.description }}
-                  </div>
-                  <div class="card-subtitle m-3">
-                    <span class="fs-5">{{ repo.created_at | date }} </span>
-                  </div>
-                  <div class="m-3 d-flex flex-row justify-content-around">
-                    <a class="btn btn-primary" href="{{ repo.html_url }}"
-                      >View Repo on Github</a
-                    >
-                    <a href="{{ repo.homepage }}" class="btn btn-primary ms-1"
-                      >Live site</a
-                    >
-                  </div>
+      <div class="col-sm-12 col-md-6 bg-primary p-3" id="aboutUser">
+        <h3 class="text-center">About User</h3>
+        <ul>
+          <li><span>Github username:</span> {{ gitprofile.login }}</li>
+          <li>
+            <span>Bio:</span>
+            <a href="{{ gitprofile.blog }}" target="blank">
+              {{ gitprofile.blog }}</a
+            >
+          </li>
+          <li><span>Company:</span> {{ gitprofile.company }}</li>
+          <li>
+            <span>Account created on:</span>
+            {{ gitprofile.created_at | date }}
+          </li>
+          <li>
+            <span>Account last updated on:</span>
+            {{ gitprofile.updated_at | date }}
+          </li>
+        </ul>
+        <br />
+      </div>
+    </div>
+    <div class="" id="repoDisplay">
+      <div class="container col-sm-12 text-center">
+        <div class="text-center">
+          <h3 class="p-4 text-light">User Repositories</h3>
+          <p class="h4 text-secondary">
+            Public Repositories:
+            <span class="text-light">{{ gitprofile.public_repos }}</span>
+          </p>
+          <!-- populating user repositories -->
+          <div *ngFor="let repo of githubrepos">
+            <div class="card m-3">
+              <div class="card-body">
+                <div class="card-header m-3 h5">
+                  <span>{{ repo.name }}</span>
+                </div>
+                <div class="card-text lead">
+                  {{ repo.description }}
+                </div>
+                <div class="card-subtitle m-3">
+                  <span class="fs-5">{{ repo.created_at | date }} </span>
+                </div>
+                <div class="m-3 d-flex flex-row justify-content-around">
+                  <a class="btn btn-primary" href="{{ repo.html_url }}"
+                    >View Repo on Github</a
+                  >
+                  <a href="{{ repo.homepage }}" class="btn btn-primary ms-1"
+                    >Live site</a
+                  >
                 </div>
               </div>
             </div>
-            <a href="{{ gitprofile.repos_url }}">{{ gitprofile.repos_url }}</a>
           </div>
+          <a href="{{ gitprofile.repos_url }}">{{ gitprofile.repos_url }}</a>
         </div>
       </div>
-    </ng-template>
-    <ng-template #errorNoGitProfile>
-      <p class="text-light">User profile not found</p>
-    </ng-template>
+    </div>
+  </ng-template>
+  <ng-template #errorNoGitProfile>
+    <p class="text-light">User profile not found</p>
+  </ng-template>
 </section>
